@@ -40,3 +40,127 @@ publique (1 à 5 étoiles) et un avis l’un pour l’autre.
 6. <u>Système de notification</u>
     — Notifications : Les utilisateurs reçoivent des notifications par email ou sur l’application pour les nouvelles
 demandes, les messages et les mises à jour des demandes
+
+### Spécifications
+- dans le fichier ```SRS.md```
+
+### Architecture
+
+Nous utiliserons dans ce projet le Pattern Client-Serveur qui est le plus adapté pour un projet local et comunautaire.
+
+### Conception
+
+- **Observer**	pour Notification.
+
+- **Factory** Pour Listing (Service de création)
+
+
+### Modélisation UML
+```mermaid
+classDiagram
+    direction LR
+
+    class User {
+        +String id
+        +String email
+        +String name
+        +String location
+        +String password
+        +String profilePhoto
+        +String biography
+        +String phoneNumberVerified
+        +int averageReputation
+        --
+        +register()
+        +login()
+        +manageProfile()
+    }
+
+    class Listing {
+        +String id
+        +String title
+        +String description
+        +String category
+        +List~String~ images
+        +String availability
+        +Date creationDate
+        --
+        +create()
+        +browse()
+        +search()
+    }
+
+    class Resource {
+        +String id
+        +String title
+        +String description
+        +Date creationDate
+    }
+
+    class Item {
+        +double price
+        --
+        +create()
+        +browse()
+        +search()
+    }
+
+    class Skill {
+        +double pricePerHour
+        --
+        +create()
+        +browse()
+        +search()
+    }
+
+    class Exchange {
+        +String id
+        +Date desiredExchangeDate
+        +String status
+        +Date creationDate
+        --
+        +send()
+        +accept()
+        +refuse()
+    }
+
+    class Review {
+        +String id
+        +int rating (1-5 stars)
+        +String comment
+        +Date reviewDate
+    }
+
+    class Message {
+        +String id
+        +String content
+        +Date timestamp
+    }
+
+    class Notification {
+        +String id
+        +String type
+        +String content
+        +boolean isRead
+        +Date creationDate
+    }
+
+    User "1" -- "*" Listing : create
+    User "1" -- "*" Resource : create
+    User "1" -- "*" Exchange : request
+
+    Resource <|-- Item : inherit
+    Resource <|-- Skill : inherit
+
+    Exchange "1" -- "1..2" User : participants
+    Exchange "1" -- "1" Listing : subject
+    
+    Listing "1" -- "*" Resource : sell
+
+    User "1" -- "*" Review : send
+    User "1" -- "*" Review : get
+    User "1" -- "*" Message : send
+    User "1" -- "*" Message : get
+
+    User "1" -- "*" Notification : receives
+```
