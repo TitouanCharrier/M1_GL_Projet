@@ -56,9 +56,9 @@
         max-width: 400px;
         margin: 50px auto;
         padding: 20px;
-        border: 1px solid #ccc;
+        border: 1px solid #42b983 ;
         border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        box-shadow: 4px 4px 6px rgba(66, 185, 131, 0.1);
         font-family: sans-serif;
     }
     h2 {
@@ -83,7 +83,7 @@
     button {
         width: 100%;
         padding: 10px;
-        background-color: #4CAF50;
+        background-color: #42b983;
         color: white;
         border: none;
         border-radius: 4px;
@@ -91,7 +91,7 @@
         font-size: 16px;
     }
     button:hover {
-        background-color: #45a049;
+        background-color: #369669;
     }
     .error {
         color: #d9534f;

@@ -1,6 +1,7 @@
 <script lang="ts">
   import Grid from '/src/lib/Grid.svelte';
   import ResourceCard from '/src/lib/Resource.svelte';
+  import ExchangeCard from '/src/lib/Exchange.svelte';
 
   const resources = [
           {
@@ -22,6 +23,7 @@
               type: 'Item'
           }
       ];
+
 
 </script>
 

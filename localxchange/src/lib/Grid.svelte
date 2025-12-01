@@ -18,21 +18,13 @@
 </div>
 
 <style>
-    .grid-controls {
-        margin-bottom: 20px;
-        padding: 15px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        display: flex;
-        gap: 10px;
-        align-items: center;
-    }
+
     .grid {
         display: grid;
         grid-template-columns: repeat(var(--columns), 1fr);
         gap: 15px;
         padding: 10px;
-        background-color: #f4f4f4;
+        background-color: rgba(0,0,0,0);
         border-radius: 8px;
     }
 

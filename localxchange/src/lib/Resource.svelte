@@ -65,7 +65,7 @@
 
 <style>
     .resource-card {
-        background-color: white;
+        background-color: #2c3e50;
         border-radius: 8px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         overflow: hidden;
@@ -87,14 +87,22 @@
         justify-content: space-between;
         align-items: center;
         padding: 15px;
-        background-color: #f7f7f7;
+        background-color: #2c3e50;
         border-bottom: 2px solid var(--main-color, #007bff);
     }
 
     .card-header h3 {
         margin: 0;
         font-size: 1.3em;
-        color: #333;
+        color: #fff;
+    }
+    .card-footer {
+        padding: 15px;
+        border-top: 1px solid #eee;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #2c3e50;
     }
 
     .type-tag {
@@ -111,7 +119,7 @@
     }
 
     .description {
-        color: #666;
+        color: #fff;
         font-size: 0.9em;
         line-height: 1.4;
         margin-bottom: 15px;
@@ -132,7 +140,7 @@
 
     .label {
         font-size: 0.8em;
-        color: #999;
+        color: #fff;
         font-weight: 500;
         margin-bottom: 3px;
     }
@@ -140,21 +148,14 @@
     .value {
         font-size: 0.9em;
         font-weight: bold;
-        color: #555;
+        color: #fff;
     }
 
     .price-value {
-        color: #28a745; /* Vert pour le prix */
+        color: #28a745;
     }
     
-    .card-footer {
-        padding: 15px;
-        border-top: 1px solid #eee;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: #fafafa;
-    }
+
 
     .card-footer button {
         padding: 8px 15px;
@@ -176,11 +177,11 @@
     }
     
     .item {
-        --main-color: #e44d26; /* Rouge/Orange pour Item */
+        --main-color: #e44d26; 
         --dark-color: #b3391b;
     }
     .skill {
-        --main-color: #28a745; /* Vert pour Skill */
+        --main-color: #28a745; 
         --dark-color: #1e7e34;
     }
 </style>
