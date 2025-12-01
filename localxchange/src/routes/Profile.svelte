@@ -1,2 +1,9 @@
-<h1>Page Mon Profil</h1>
-<p>Bienvenue sur votre page personnelle.</p>
+<script lang="ts">
+  import Connexion from '/src/lib/Connexion.svelte';
+
+</script>
+
+<div class="Connexion">
+  <Connexion />
+</div>
+
