@@ -1,2 +1,9 @@
-<h1>Page Mes Transcations</h1>
-<p>Bienvenue sur votre page personnelle.</p>
+<script lang="ts">
+  import Grid from '/src/lib/Grid.svelte';
+
+</script>
+
+<div class="Connexion">
+  <Grid />
+</div>
+
