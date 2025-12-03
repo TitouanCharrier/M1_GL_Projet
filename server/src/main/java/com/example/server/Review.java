@@ -1,19 +1,16 @@
-package com.exemple.server;
+package com.example.server;
 
 import java.util.Date;
 import java.util.List;
 
 public class Review {
-    // Attributs
     private String id;
-    private int rating; // (1-5 stars)
+    private int rating; 
     private String comment;
     private Date reviewDate;
     
-    // Relations (pour la clarté)
-    private User sender;
-    private User receiver; // (La relation "get" implicite)
+        private User sender;
+    private User receiver; 
 
-    // Constructeur, Getters et Setters (omis pour la concision)
 }
 
