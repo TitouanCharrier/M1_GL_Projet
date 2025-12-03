@@ -15,10 +15,16 @@ public class Controller {
         this.storage = storage;
     }
 
+    @CrossOrigin(origins = "http://localhost:5173")
     @GetMapping("/resources")
     public List<com.example.server.Resource> getAllResources() {
-        System.out.println("test");
         return storage.getAllResources();
+    }
+
+    @CrossOrigin(origins = "http://localhost:5173")
+    @GetMapping("/exchanges")
+    public List<com.example.server.Exchange> getAllExchanges() {
+        return storage.getAllExchanges();
     }
 
 

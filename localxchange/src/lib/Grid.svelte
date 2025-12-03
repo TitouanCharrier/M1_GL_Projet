@@ -1,7 +1,7 @@
 <script>
     export let gridData = [];
     
-    let numColumns = 2;
+    let numColumns = 5;
 
 </script>
 

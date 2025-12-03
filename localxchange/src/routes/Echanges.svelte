@@ -2,26 +2,23 @@
   import Grid from '/src/lib/Grid.svelte';
   import ExchangeCard from '/src/lib/Exchange.svelte';
 
-  const exchanges = [
-          {
-              id: 'EX-001',
-              date: new Date('2025-11-20'),
-              status: 'completed',
-              user1: "Jérome",
-              user2: "Monique",
-              res1: "défibrillateur",
-              res2: "laçage de chaussure"
-          },
-          {
-              id: 'EX-002',
-              date: new Date('2025-11-20'),
-              status: 'completed',
-              user1: "Jérome",
-              user2: "Monique",
-              res1: "raton laveur",
-              res2: "paire de claque"
-          },
-      ];
+  let exchanges;
+ 
+ fetch('http://localhost:8080/exchanges')  
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Erreur HTTP ' + response.status);
+        }
+        return response.json();  
+    })
+    .then(data => {
+        exchanges = data;
+        console.log(resources);  
+    })
+    .catch(error => {
+        console.error('Erreur lors de la récupération des données :', error);
+    });
+
 
 
 </script>

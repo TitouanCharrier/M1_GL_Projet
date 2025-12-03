@@ -55,4 +55,31 @@ public class Storage {
         return resources;
     }
 
+    public List<Exchange> getAllExchanges() {
+        List<Exchange> exchanges = new ArrayList<>();
+        String sql = "SELECT * FROM Exchange";
+        System.out.println(sql);
+
+        try (Connection conn = DriverManager.getConnection(DB_URL);
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+
+            while (rs.next()) {
+                Exchange exchange = new Exchange();
+                exchange.setId(rs.getString("id"));
+                exchange.setStatus(rs.getString("status"));
+                exchange.setUser1(rs.getString("participant1"));
+                exchange.setUser2(rs.getString("participant2"));
+
+                exchanges.add(exchange);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return exchanges;
+    }
+
+
 }

@@ -9,8 +9,10 @@ import java.util.ArrayList;
 import java.util.Date;
 
 
+
 @SpringBootApplication
 public class ServerApplication {
+
 
     public List<Resource> globalResourceList = new ArrayList<>();
 
