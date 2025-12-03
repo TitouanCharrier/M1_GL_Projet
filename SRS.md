@@ -19,15 +19,17 @@ Utilisations Prévues : Publier des annonces (objets et compétences), recherche
 #### Définitions, Acronymes et Abréviations
 
 
-- Utilisateur :	
+- **Utilisateur** :	
 
 Tout individu inscrit et connecté à l'application.
-- Contributeur :	
+- Contributeur** :	
 
 Utilisateur qui propose un objet ou une compétence à l'échange/prêt.
-Bénéficiaire	Utilisateur qui demande l'objet ou la compétence.
+
+- Bénéficiaire	Utilisateur qui demande l'objet ou la compétence.
 Échange	Transaction approuvée d'objet contre objet, compétence contre compétence, ou objet contre compétence.
-API	Interface de Programmation d'Application (Application Programming Interface)
+
+- API Interface de Programmation d'Application (Application Programming Interface)
 
 ## Description Générale
 

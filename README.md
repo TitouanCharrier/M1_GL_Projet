@@ -56,6 +56,33 @@ Nous utiliserons dans ce projet le Pattern Client-Serveur qui est le plus adapt�
 
 
 ### Modélisation UML
+
+```mermaid
+flowchart LR
+
+    %% Modules principaux
+    subgraph FrontEnd [Front End]
+        Vite
+        Svelte
+    end
+
+    subgraph Serveur [Back End]
+        SpringBootREST[SpringBoot REST]
+        NPM[npm]
+    end
+
+    subgraph BaseDeDonnee [Base de Donnée]
+        SQLite
+    end
+
+    %% Relations entre modules
+    FrontEnd --> Serveur
+    Serveur --> BaseDeDonnee
+
+```
+
+#### Schéma relationel global
+
 ```mermaid
 classDiagram
     direction LR
