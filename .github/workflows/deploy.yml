@@ -12,6 +12,11 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest # Environnement d'exécution
 
+    permissions:
+      contents: write  # Donne la permission d'écriture au token du bot
+      pages: write     # Requis par certaines actions pour gérer Pages
+      id-token: write  # Souvent requis par peaceiris/actions-gh-pages
+
     steps:
       # 1. Checkout du code
       - name: Checkout Repository
