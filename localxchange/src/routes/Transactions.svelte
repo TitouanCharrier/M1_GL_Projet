@@ -1,8 +1,10 @@
 <script lang="ts">
     import { push } from 'svelte-spa-router';
+    import { onMount } from 'svelte';
+    onMount(() => {
+      window.scrollTo(0, 0); 
+    });
 
-    // --- Variables d'état du formulaire local ---
-    // Les valeurs initiales correspondent aux exportations définies
     let title = '';
     let description = '';
     let category: 'Général' | 'Services' | 'Produits' | 'Immobilier' = 'Général';

@@ -2,8 +2,8 @@
   import Router from 'svelte-spa-router';
   import Banner from './lib/Banner.svelte';
   import Profile from './routes/Profile.svelte';
-  import Annonces from './routes/Annonces.svelte';
   import Echanges from './routes/Echanges.svelte';
+  import Message from './routes/Message.svelte';
   import Transactions from './routes/Transactions.svelte';
   import Home from './routes/Home.svelte'; 
   import NotFound from './routes/NotFound.svelte';
@@ -12,10 +12,10 @@
   const routes = {
     '/': Home, 
     '/profile': Profile,
-    '/annonces': Annonces,
     '/echanges': Echanges,
     '/transactions': Transactions,
     '/profile-connected': ProfileConnected,
+    '/message': Message,
     '*': NotFound,
   };
 </script>
@@ -38,6 +38,7 @@ main {
   .router {
   flex-grow: 1;
   width: 100%;
+  height: 100vh;
   }
   
 .banner {

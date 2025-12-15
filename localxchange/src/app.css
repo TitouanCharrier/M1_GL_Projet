@@ -48,6 +48,7 @@ h1 {
 
 #app {
   width: 100%;
+  height: 100vh;
   margin-left: 12em;
   padding: 2rem;
   text-align: center;

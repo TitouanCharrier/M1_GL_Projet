@@ -1,5 +1,6 @@
 <script lang="ts">
-    import { push } from 'svelte-spa-router';
+    // --- NOUVEAU : Importation du store de localisation de svelte-spa-router ---
+    import { push, location } from 'svelte-spa-router'; 
     import { isConnected, handleLogout } from '../lib/stores/authStore'; 
 
     const navLinks = [
@@ -7,15 +8,14 @@
         { name: 'Créer une Annonce', href: '/transactions', requiresAuth: true },
         { name: 'Connexion', href: '/profile', requiresAuth: false },
         { name: 'Mon Profile', href: '/profile-connected', requiresAuth: true }, 
-        { name: 'Mes Annonces', href: '/annonces', requiresAuth: true },
-        { name: 'Historique', href: '/echanges', requiresAuth: true }
+        { name: 'Historique', href: '/echanges', requiresAuth: true },
+        { name: 'Messagerie', href: '/message', requiresAuth: true }
     ];
 
     function navigate(href: string) {
         push(href);
     }
 
-    
     $: filteredLinks = navLinks.filter(link => {
         if (!link.requiresAuth) {
             // Mais si l'utilisateur est connecté, on exclut le lien 'Connexion'.
@@ -27,6 +27,19 @@
         
         return false;
     });
+    
+    // Règle spéciale pour lier le bouton Mon Profile avec l'URL /profile ou /profile-connected
+    function isActive(href: string): boolean {
+        // La variable $location contient le chemin d'URL actuel
+        
+        // Cas spécial : /profile et /profile-connected pointent vers la même activation visuelle
+        if (href.includes('/profile') && $location.includes('/profile')) {
+            return true;
+        }
+
+        // Cas général : Correspondance exacte du chemin (ex: /message == /message)
+        return $location === href;
+    }
 </script>
 
 <nav class="sidebar">
@@ -36,7 +49,11 @@
 
     <div class="sidebar-links">
         {#each filteredLinks as link}
-            <button on:click={() => navigate(link.href)} class="nav-button">
+            <button 
+                on:click={() => navigate(link.href)} 
+                class="nav-button"
+                class:active={isActive(link.href)} 
+            >
                 {link.name}
             </button>
         {/each}
@@ -54,9 +71,6 @@
 </nav>
 
 <style>
-    /* -------------------
-       Structure Verticale et Fixe
-       ------------------- */
     .sidebar {
         /* Propriétés clés pour le rendre vertical et plein écran */
         position: fixed; 
@@ -77,11 +91,9 @@
         color: white;
         font-family: sans-serif;
         z-index: 1000; 
+        overflow: hidden;
     }
     
-    /* -------------------
-       Marque et Liens
-       ------------------- */
     .sidebar-brand {
         padding-bottom: 20px;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -116,19 +128,30 @@
         cursor: pointer;
         text-align: left;
         width: 90%; 
-        margin: 2px 0; /* Espacement réduit */
+        margin: 2px 0; 
         border-radius: 4px;
-        transition: background-color 0.3s ease;
-    }
-
-    .nav-button:hover {
-        background-color: #42b983; 
-        color: #2c3e50;
+        transition: background-color 0.3s ease, color 0.3s ease; /* Ajout de la transition couleur */
     }
     
-    /* Style spécifique pour le bouton Déconnexion */
+    .nav-button.active {
+        background-color: #42b983; 
+        color: #eee; 
+        font-weight: bold;
+        box-shadow: inset 3px 0 0 #42b983; 
+        margin-right: -2em;
+    }
+
+    
+    .nav-button:hover:not(.active) {
+        background-color: #556d86; 
+    }
+    .nav-button.active:hover {
+        
+        background-color: #42b983; 
+    }
+    
     .logout-btn {
-        background-color: #c0392b; /* Rouge foncé */
+        background-color: #c0392b; 
         width: 80%;
         margin-bottom: 20px;
         font-weight: bold;

@@ -1,6 +1,11 @@
 <script>
-    // Ces données simulent celles que vous récupéreriez d'une API
-    let user = {
+  import { onMount } from 'svelte';
+    
+  onMount(() => {
+      window.scrollTo(0, 0); 
+  });
+ 
+  let user = {
         name: 'Jean Dupont',
         email: 'jean.dupont@example.com',
         phone: '06 12 34 56 78',
