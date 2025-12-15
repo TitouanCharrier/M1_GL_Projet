@@ -6,6 +6,6 @@ const repoName = 'M1_GL_Projet';
 export default defineConfig({
   plugins: [svelte()],
   
-  base: `/${repoName}/localxchange/`, 
+  base: `/${repoName}/`, 
   
 });
