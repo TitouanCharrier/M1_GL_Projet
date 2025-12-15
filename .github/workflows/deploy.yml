@@ -28,7 +28,7 @@ jobs:
 
       # 3. Installation des dépendances et Build (npm run build)
       - name: Install dependencies and Build
-        working-directory: client 
+        working-directory: localxchange 
         run: |
           npm install
           npm run build 
