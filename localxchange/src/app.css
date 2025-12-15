@@ -11,6 +11,13 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+  --primary-color: #42b983; 
+  --secondary-color: #eee; 
+  --background-color: #374d64; 
+  --card-background: #2c3e50;
+  --border-color: #2c3e50;
+  --focus-color: #2e8b57;
 }
 
 a {
@@ -40,8 +47,8 @@ h1 {
 }
 
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
+  width: 100%;
+  margin-left: 12em;
   padding: 2rem;
   text-align: center;
 }

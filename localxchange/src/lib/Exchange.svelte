@@ -68,16 +68,18 @@
         border-radius: 8px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         margin: 15px;
-        max-width: 450px;
-        min-width: 300px;
+        max-width: 15em;
+        min-width: 15em;
         font-family: sans-serif;
-        border: 1px solid var(--status-color, #42b983);
+        border: 0px solid var(--status-color, #42b983);
     }
     
     .card-header {
-        border-radius: 8px;
+        border-radius: 8px 8px 0 0;
         padding: 15px;
         background-color: #2c3e50;
+        border-bottom: 2px solid var(--status-color, #42b983);
+
     }
 
     .card-header h3 {
@@ -88,7 +90,7 @@
     
     .status-badge {
         padding: 5px 10px;
-        border-radius: 4px;
+        border-radius: 8px;
         font-size: 0.9em;
         margin-bottom: 15px;
         text-align: center;
@@ -123,7 +125,7 @@
 
     .detail-group {
         padding: 10px;
-        border-radius: 4px;
+        border-radius: 8px;
         box-shadow: 4px 4px 6px rgba(66, 185, 131, 0.1);
         background-color: #374d64;
     }
@@ -161,7 +163,7 @@
         padding: 8px 15px;
         color: black;
         border: none;
-        border-radius: 4px;
+        border-radius: 8px;
         cursor: pointer;
         font-size: 0.9em;
         transition: opacity 0.2s;

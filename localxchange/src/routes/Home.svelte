@@ -61,5 +61,6 @@
         gap: 20px;
         justify-content: center;
         padding: 20px;
+        width: 100%;
     }
 </style>

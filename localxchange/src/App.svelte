@@ -7,6 +7,7 @@
   import Transactions from './routes/Transactions.svelte';
   import Home from './routes/Home.svelte'; 
   import NotFound from './routes/NotFound.svelte';
+  import ProfileConnected from './routes/Profile-connected.svelte';
 
   const routes = {
     '/': Home, 
@@ -14,14 +15,13 @@
     '/annonces': Annonces,
     '/echanges': Echanges,
     '/transactions': Transactions,
+    '/profile-connected': ProfileConnected,
     '*': NotFound,
   };
 </script>
 
   <main>
-    <div class="banner">
-      <Banner />
-    </div>
+    <Banner />
     <div class="router">
     <Router {routes} />
     </div>
@@ -37,10 +37,11 @@ main {
 
   .router {
   flex-grow: 1;
+  width: 100%;
   }
   
 .banner {
-    width: 250px; 
+    width: 10em; 
     flex-shrink: 0; 
   }
 

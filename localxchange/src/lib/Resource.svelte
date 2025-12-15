@@ -71,8 +71,8 @@
         overflow: hidden;
         margin: 15px;
         transition: transform 0.2s, box-shadow 0.2s;
-        max-width: 350px;
-        min-width: 300px;
+        max-width: 15em;
+        min-width: 15em;
         font-family: sans-serif;
     }
 
@@ -88,7 +88,7 @@
         align-items: center;
         padding: 15px;
         background-color: #2c3e50;
-        border-bottom: 2px solid var(--main-color, #007bff);
+        border-bottom: 2px solid var(--main-color, #42b983);
     }
 
     .card-header h3 {
@@ -111,7 +111,7 @@
         font-size: 0.8em;
         font-weight: bold;
         color: white;
-        background-color: var(--main-color, #007bff);
+        background-color: var(--main-color, #42b983);
     }
 
     .card-body {
@@ -159,7 +159,7 @@
 
     .card-footer button {
         padding: 8px 15px;
-        background-color: var(--main-color, #007bff);
+        background-color: var(--main-color, #42b983);
         color: white;
         border: none;
         border-radius: 4px;
@@ -168,7 +168,7 @@
     }
 
     .card-footer button:hover {
-        background-color: var(--dark-color, #0056b3);
+        background-color: var(--dark-color, #42b983);
     }
 
     .id-info {

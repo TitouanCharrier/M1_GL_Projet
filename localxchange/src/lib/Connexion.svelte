@@ -1,4 +1,6 @@
 <script>
+  
+    import { handleLogin } from '../lib/stores/authStore';
     let email = '';
     let password = '';
     let message = ''; 
@@ -11,10 +13,9 @@
             return;
         }
 
-        if (email === 'test@example.com' && password === 'motdepasse') {
-            message = 'Connexion réussie ! Bienvenue.';
-            email = '';
-            password = '';
+        if (email === 'a@a.a' && password === 'aze') {
+             
+          handleLogin();
         } else {
             message = 'Email ou mot de passe incorrect.';
         }
