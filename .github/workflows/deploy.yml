@@ -28,9 +28,10 @@ jobs:
 
       # 3. Installation des dépendances et Build (npm run build)
       - name: Install dependencies and Build
+        working-directory: client 
         run: |
           npm install
-          npm run build # Exécute la commande de build de Vite (génère le dossier dist)
+          npm run build 
 
       # 4. Déploiement du dossier 'dist' vers la branche 'gh-pages'
       - name: Deploy to GitHub Pages
@@ -38,6 +39,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           # 🚨 Le dossier de sortie de Vite
-          publish_dir: ./dist 
+          publish_dir: ./localxchange/dist 
           # Cible la branche 'gh-pages'
           publish_branch: gh-pages
+
