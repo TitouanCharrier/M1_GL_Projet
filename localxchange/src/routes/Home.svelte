@@ -8,7 +8,7 @@
     let resources: any[] | undefined;
     let filteredResources: any[] | undefined;
     
-    fetch('http://localhost:8080/resources')  
+    fetch('http://78.114.8.86:8080/resources')  
         .then(response => {
             if (!response.ok) {
                 throw new Error('Erreur HTTP ' + response.status);
