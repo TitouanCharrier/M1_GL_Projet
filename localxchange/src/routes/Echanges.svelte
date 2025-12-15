@@ -7,7 +7,7 @@
     let exchanges;
     let filteredResources;
     
-    fetch('https://78.114.8.86:8080/exchanges')  
+    fetch('https://78.114.8.86/exchanges')  
         .then(response => {
             if (!response.ok) {
                 throw new Error('Erreur HTTP ' + response.status);
