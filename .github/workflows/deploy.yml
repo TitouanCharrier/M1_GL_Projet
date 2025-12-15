@@ -1,0 +1,43 @@
+# Nom du workflow
+name: Deploy to GitHub Pages
+
+# Déclencheur : s'exécute à chaque push sur la branche 'main'
+on:
+  push:
+    branches:
+      - main
+
+# Définition du job
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest # Environnement d'exécution
+
+    steps:
+      # 1. Checkout du code
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          # Nécessaire pour l'action de déploiement
+          fetch-depth: 0 
+
+      # 2. Configuration de Node.js (Vite nécessite Node)
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Utilisez la version de Node.js stable
+
+      # 3. Installation des dépendances et Build (npm run build)
+      - name: Install dependencies and Build
+        run: |
+          npm install
+          npm run build # Exécute la commande de build de Vite (génère le dossier dist)
+
+      # 4. Déploiement du dossier 'dist' vers la branche 'gh-pages'
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          # 🚨 Le dossier de sortie de Vite
+          publish_dir: ./dist 
+          # Cible la branche 'gh-pages'
+          publish_branch: gh-pages
