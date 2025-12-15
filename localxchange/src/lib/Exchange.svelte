@@ -4,6 +4,7 @@
     export let id;
     export let date;          
     export let status;
+    export let subjectTitle = "test";
     export let user1;     
     export let user2;     
     export let res1;     
@@ -27,7 +28,7 @@
 
 <article class="exchange-card">
     <header class="card-header">
-        <h3>Échange de Ressources</h3>
+        <h3>{subjectTitle}</h3>
         <span class="id-info">ID: {id}</span>
     </header>
 

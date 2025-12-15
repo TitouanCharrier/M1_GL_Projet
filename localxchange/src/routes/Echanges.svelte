@@ -1,32 +1,44 @@
 <script lang="ts">
-  import Grid from '/src/lib/Grid.svelte';
-  import ExchangeCard from '/src/lib/Exchange.svelte';
+    import Grid from '/src/lib/Grid.svelte';
+    import ExchangeCard from '/src/lib/Exchange.svelte';
+    import SearchBar from '/src/lib/SearchBar.svelte';
+    import { tick } from 'svelte'; 
 
-  let exchanges;
- 
- fetch('http://localhost:8080/exchanges')  
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Erreur HTTP ' + response.status);
-        }
-        return response.json();  
-    })
-    .then(data => {
-        exchanges = data;
-        console.log(resources);  
-    })
-    .catch(error => {
-        console.error('Erreur lors de la récupération des données :', error);
-    });
+    let exchanges;
+    let filteredResources;
+    
+    fetch('http://localhost:8080/exchanges')  
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erreur HTTP ' + response.status);
+            }
+            return response.json();  
+        })
+        .then(async data => { 
+            exchanges = data;
+            console.log(exchanges); 
+            
+            await tick(); 
+        })
+        .catch(error => {
+            console.error('Erreur lors de la récupération des données :', error);
+        });
 
-
-
+    $: if (exchanges && filteredResources === undefined) {
+        filteredResources = exchanges;
+    }
 </script>
 
-<Grid gridDate={exchanges} /> 
+<SearchBar 
+    bind:filteredResources
+    items={exchanges}
+    key="subjectTitle"
+/>
+
+<Grid gridData={filteredResources} /> 
 
 <div class="card-list">
-    {#each exchanges as exchange (exchange.id)}
+    {#each filteredResources as exchange (exchange.id)}
         <ExchangeCard
             id={exchange.id}
             date={exchange.date}
@@ -35,6 +47,7 @@
             user2={exchange.user2}
             res1={exchange.res1}
             res2={exchange.res2}
+            subjectTitle={exchange.subjectTitle}
         />
     {/each}
 </div>

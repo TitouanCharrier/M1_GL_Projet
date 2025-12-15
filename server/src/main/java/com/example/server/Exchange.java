@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Exchange {
     private String id;
+    private String subjectTitle;
     private Date date;
     private String status;
     private Date creationDate;
@@ -65,6 +66,14 @@ public class Exchange {
 
     public void setSubjectListing(Listing subjectListing) {
         this.subjectListing = subjectListing;
+    }
+
+    public void setSubjectTitle(String subjectTitle) {
+        this.subjectTitle = subjectTitle;
+    }
+
+    public String getSubjectTitle() {
+        return this.subjectTitle;
     }
 
     public String getUser1() {

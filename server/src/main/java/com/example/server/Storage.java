@@ -70,6 +70,7 @@ public class Storage {
                 exchange.setStatus(rs.getString("status"));
                 exchange.setUser1(rs.getString("participant1"));
                 exchange.setUser2(rs.getString("participant2"));
+                exchange.setSubjectTitle(rs.getString("subjectTitle"));
 
                 exchanges.add(exchange);
             }
