@@ -1,6 +1,14 @@
 # Projet de synthèse 
 ## Une application d’échange local de biens et de compétences
 
+### Usage
+- cloner le repo.
+- dans localxchange (frontend) lancer ```npm install``` suivi de ```npm run dev```
+- dans server (backend) lancer ```mvn spring-boot:run```
+- aller sur la page host par le serveur npm pour accéder au site.
+
+Remarque : il faudra peut etre changer l'adresse hard codé dans les fichiers ```localxchange/src/routes/Home.svelte``` et ```localxchange/src/routes/Echanges.svelte``` pour avoir le lien avec le backend.
+
 ### Élicitation
 
 1. <u>Authentification des Utilisateurs</u>
